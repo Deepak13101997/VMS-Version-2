@@ -22,3 +22,73 @@ sqlcipher
 numpy
 pyinstaller
 ping3
+
+
+
+<!-- github -->
+
+# 1. Pazhaya .git folder-a secure-ah delete pannruvatharkku
+Remove-Item -Recurse -Force .git -ErrorAction SilentlyContinue
+
+# 2. Fresh-ah Git initialize panna
+git init
+
+# 3. Default branch name-a 'main' nu set panna
+git branch -M main
+
+# 4. Ungaloda GitHub repository-kku link panna
+git remote add origin https://github.com/suryabm98/milkymist_attendance.git
+
+# 5. .gitignore file accurate-ah irukka nu make sure panna
+Set-Content .gitignore "venvfile/`nvenv/`n.venv/`nmedia/`nTEMP/`n*.sqlite3`n__pycache__/`n.env`n*.pt`n*.engine`n*.onnx"
+
+# 6. Clean-ah files-a add panna (venvfile block aagidum!)
+git add .
+
+# 7. Initial commit podurathu
+git commit -m "Fresh clean project commit"
+
+# 8. GitHub-ku 'main' branch-a force push panna (Pazhaya commits override aagum)
+git push -u origin main --force
+
+<!-- Next: Create sub-main and working Branches -->
+
+# Create & Push sub-main branch
+git checkout -b sub-main
+git push -u origin sub-main --force
+
+
+<!-- -----------------------working---------------------------- -->
+# Create & Push working branch
+git checkout -b working
+git push -u origin working --force
+
+# 1. Develop and push on working branch
+git checkout working
+git add .
+git commit -m "Your commit message"
+git push origin working
+
+
+<!-- -----------------------sub-main---------------------------- -->
+# 2. Merge working into sub-main
+git checkout sub-main
+git pull origin sub-main
+git merge working
+git push origin sub-main
+
+
+<!-- -----------------------main---------------------------- -->
+# 3. Merge sub-main into main (Production)
+git checkout main
+git pull origin main
+git merge sub-main
+git push origin main
+
+# 4. Switch back to working branch for daily development
+git checkout working
+
+
+
+
+
