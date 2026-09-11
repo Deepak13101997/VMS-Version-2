@@ -1,0 +1,6 @@
+opencv_python
+pillow
+sqlcipher
+numpy
+pyinstaller
+ping3
