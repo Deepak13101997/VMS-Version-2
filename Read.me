@@ -1,0 +1,24 @@
+#--Exe format Build code------
+
+
+pyinstaller ^
+--clean ^
+--noconfirm ^
+--onefile ^
+--windowed ^
+--icon=logo.ico ^
+--version-file=version.txt ^
+--name="CamlytixVMS" ^
+--add-data "camlytixvms.db;." ^
+camlytixvms.py
+
+
+
+#--install libary------
+
+opencv_python
+pillow
+sqlcipher
+numpy
+pyinstaller
+ping3
